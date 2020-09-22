@@ -12,8 +12,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public TextView textView;
-    public Button btn_one, btn_two, btn_three, btn_four, btn_five, btn_six, btn_seven, btn_eight,
-            btn_nine, btn_total, btn_plus, btn_minus, btn_multiply, btn_div, btn_clear, btn_delete;
+
+    String text = " ";
+
+
 
 
 
@@ -22,131 +24,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.display);
-        btn_plus = findViewById(R.id.btn_plus);
-        btn_one = findViewById(R.id.btn_one);
-    }
-
-    public void btnClickPlus(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Plus", Toast.LENGTH_LONG);
-        toast.show();
-        
-    }
-
-    public void btnClickTotal(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Total", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void btnClickPercent(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Percent", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void btnClickZero(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Zero", Toast.LENGTH_LONG);
-        toast.show();
-
-    }
-
-    public void BtnClickComma(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Comma", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickOne(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "One", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickTwo(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Two", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickThree(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Three", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickFour(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Four", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickFive(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Five", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickSix(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Six", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickSeven(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Seven", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickEight(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Eight", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickNine(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Nine", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickMinus(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Minus", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickDelete(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Delete", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickMultiply(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Multiply", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickDiv(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Div", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void BtnClickClear(View v){
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Clear", Toast.LENGTH_LONG);
-        toast.show();
     }
 
 
-    public void Rotate(View v){
-        Intent intent = new Intent(this, CalculatorActivity.class);
-        startActivity(intent);
+    public void click(View v){
+        Button b = (Button)v;
+        String buttonText = b.getText().toString();
+        text += b.getText().toString();
+        textView.setText(text);
     }
+
+    public void Clear(View v){
+        textView.setText(" ");
+        text = " ";
+    }
+
+    public void Delete(View v){
+        if(textView.getText().toString() == null)
+        {
+            Toast toast = Toast.makeText(getApplicationContext(), "Введiть число", Toast.LENGTH_LONG);
+            toast.show();
+        }
+        else if(textView.getText().toString() != null) {
+            textView.setText(text.substring(0, text.length() - 1));
+            text = text.substring(0, text.length() - 1);
+        }
+
+    }
+
+
+
+
+
+
+
 
 
 
