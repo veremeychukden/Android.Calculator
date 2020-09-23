@@ -24,7 +24,7 @@
         android:layout_width="89dp"
         android:layout_height="152dp"
         android:background="#0776CF"
-        android:onClick="Total"
+        android:onClick="click"
         android:text="="
         android:textColor="#FFFF"
         android:textSize="40dp"
